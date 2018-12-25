@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="MTC">
+  <DataContextMoniker Name="/MTCDataContext" />
+  <nestedChildShapes>
+    <classShape Id="443af003-0697-4d6c-b4b3-9b4eb61c4298" absoluteBounds="1.125, 3.125, 2, 1.9631982421875">
+      <DataClassMoniker Name="/MTCDataContext/Клиенты" />
+      <nestedChildShapes>
+        <elementListCompartment Id="67836b02-040c-4a6a-b066-cc33c3fcdc1a" absoluteBounds="1.1400000000000001, 3.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b9ca7553-5bc7-4a28-98e3-97e8aa8815d5" absoluteBounds="3.625, 3.25, 2, 2.5401025390625">
+      <DataClassMoniker Name="/MTCDataContext/Звонки" />
+      <nestedChildShapes>
+        <elementListCompartment Id="df8b989d-e8a1-4eb8-9487-2f8c8cd722f6" absoluteBounds="3.6400000000000006, 3.71, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.125 : 4.5569482421875); (3.625 : 4.5569482421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MTCDataContext/Клиенты/Клиенты_Звонки" />
+      <nodes>
+        <classShapeMoniker Id="443af003-0697-4d6c-b4b3-9b4eb61c4298" />
+        <classShapeMoniker Id="b9ca7553-5bc7-4a28-98e3-97e8aa8815d5" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="031db8c6-7c37-4701-9453-105bbbd90503" absoluteBounds="4.5, 0.5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/MTCDataContext/Users" />
+      <nestedChildShapes>
+        <elementListCompartment Id="08f537e7-0f70-486c-9468-5d52c2665d13" absoluteBounds="4.515, 0.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="420f7aea-09b9-4488-8f02-9970ba810e1b" absoluteBounds="1.375, 0.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/MTCDataContext/Тарифы" />
+      <nestedChildShapes>
+        <elementListCompartment Id="84716e6f-5b05-49f5-93f6-790793ac6fcb" absoluteBounds="1.3900000000000001, 1.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.375 : 2.8381982421875); (3.625 : 3.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MTCDataContext/Тарифы/Тарифы_Звонки" />
+      <nodes>
+        <classShapeMoniker Id="420f7aea-09b9-4488-8f02-9970ba810e1b" />
+        <classShapeMoniker Id="b9ca7553-5bc7-4a28-98e3-97e8aa8815d5" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

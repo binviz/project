@@ -1,0 +1,143 @@
+﻿<Window x:Class="MTC.addCall"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Звонки" Height="768" Width="1366" WindowStartupLocation="CenterOwner" WindowState="Maximized">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10,10,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Дата" Grid.Row="0" Grid.Column="0" Margin="3"/>
+        <TextBlock Text="Город" Grid.Row="0" Grid.Column="1" Margin="3"/>
+        <TextBlock Text="Номер телефона" Grid.Row="0" Grid.Column="2" Margin="3"/>
+        <TextBlock Text="Длительность" Grid.Row="0" Grid.Column="3" Margin="3"/>
+        <TextBlock Text="Отправка счета" Grid.Row="0" Grid.Column="4" Margin="3"/>
+        <TextBlock Text="Оплата счета" Grid.Row="0" Grid.Column="5" Margin="3"/>
+        <TextBlock Text="Исходящий номер" Grid.Row="0" Grid.Column="6" Margin="3"/>
+        <TextBlock Text="Область" Grid.Row="0" Grid.Column="7" Margin="3"/>
+        <TextBlock Text="Район" Grid.Row="0" Grid.Column="8" Margin="3"/>
+        <TextBlock Text="Населенный пункт" Grid.Row="0" Grid.Column="9" Margin="3"/>
+
+
+        <DatePicker x:Name="tbDate"  Grid.Row="1" Grid.Column="0" Margin="3"  HorizontalAlignment="Left" DisplayDate="2018-12-11"/>
+        <TextBox x:Name="tbCity" Grid.Row="1" Grid.Column="1" MinWidth="100" Margin="3" HorizontalAlignment="Left"/>
+        <TextBox x:Name="tbNumber" Grid.Row="1" Grid.Column="2" MinWidth="100"  Margin="3" HorizontalAlignment="Left"/>
+        <TextBox x:Name="tbDuration" Grid.Row="1" Grid.Column="3" MinWidth="100" Margin="3" HorizontalAlignment="Left"/>
+        <CheckBox x:Name="cbMess" Grid.Row="1" Grid.Column="4"  Margin="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <CheckBox x:Name="cbPayment" Grid.Row="1" Grid.Column="5" Margin="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox x:Name="tbNumberOut" Grid.Row="1" Grid.Column="6" MinWidth="100" Margin="3" HorizontalAlignment="Left"/>
+        <TextBox x:Name="tbRegion" Grid.Row="1" Grid.Column="7" MinWidth="100" Margin="3" HorizontalAlignment="Left"/>
+        <TextBox x:Name="tbDistrict" Grid.Row="1" Grid.Column="8" MinWidth="100" Margin="3" HorizontalAlignment="Left"/>
+        <TextBox x:Name="tbLocality" Grid.Row="1" Grid.Column="9" MinWidth="100" Margin="3" HorizontalAlignment="Left"/>
+        <Button x:Name="SearchButton" Click="SearchButton_Click" Content="Поиск"  Grid.Row="1" Grid.Column="10" Margin="3"/>
+        <Button x:Name="ClearButton"  Click="ClearButton_Click" Content="Очистить"  Grid.Row="1" Grid.Column="11" Margin="3"/>
+
+        <DataGrid Grid.ColumnSpan="12" Grid.Row="2" Grid.Column="0" MouseUp="DateGridCall_MouseUp" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Name="DateGridCall"  Margin="10,10,10,0" />
+
+        <ComboBox x:Name="operationList" Grid.ColumnSpan="12" SelectionChanged="operationList_SelectionChanged" Grid.Row="3" Grid.Column="0" Height="20" SelectedIndex="0" VerticalAlignment="Top">
+            <TextBlock><Run Text="Добавление"/></TextBlock>
+            <TextBlock><Run Text="Изменение"/></TextBlock>
+            <TextBlock><Run Text="Удаление"/></TextBlock>
+        </ComboBox>
+
+        <TextBlock Text="Номер телефона" Grid.Row="4" Grid.Column="0" Margin="3"/>
+        <TextBlock Text="Фамилия" Grid.Row="4" Grid.Column="1" Margin="3"/>
+        <TextBlock Text="Имя" Grid.Row="4" Grid.Column="2" Margin="3"/>
+        <TextBlock Text="Отчество" Grid.Row="4" Grid.Column="3" Margin="3"/>
+        <TextBlock Text="Дата регстрации" Grid.Row="4" Grid.Column="4" Margin="3"/>
+
+        <TextBox x:Name="tbClientNumber" Grid.Row="5" Grid.Column="0" MinWidth="100" Margin="3" HorizontalAlignment="Left"/>
+        <TextBox x:Name="tbClientSurname" Grid.Row="5" Grid.Column="1" MinWidth="100"  Margin="3" HorizontalAlignment="Left"/>
+        <TextBox x:Name="tbClientName" Grid.Row="5" Grid.Column="2" MinWidth="100" Margin="3" HorizontalAlignment="Left"/>
+        <TextBox x:Name="tbClientPatronymic" Grid.Row="5" Grid.Column="3" MinWidth="100" Margin="3" HorizontalAlignment="Left"/>
+        <DatePicker x:Name="tbClietnDate"  Grid.Row="5" Grid.Column="4" Margin="3"  HorizontalAlignment="Left" DisplayDate="2018-12-11"/>
+        <Button x:Name="SearchClietnButton" Click="SearchClietnButton_Click" Content="Поиск"  Grid.Row="5" Grid.Column="5" Margin="3"/>
+        <Button x:Name="ClearClientButton"  Click="ClearClientButton_Click" Content="Очистить"  Grid.Row="5" Grid.Column="6" Margin="3"/>
+
+        <DataGrid Grid.ColumnSpan="7" Grid.Row="6" MouseUp="DateGridClient_MouseUp" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Name="DateGridClient"  Margin="10,10,10,0" />
+
+        <TextBlock Text="Область" Grid.Row="7" Grid.Column="0" Margin="3"/>
+        <TextBlock Text="Район" Grid.Row="7" Grid.Column="1" Margin="3"/>
+        <TextBlock Text="Населенный пункт" Grid.Row="7" Grid.Column="2" Margin="3"/>
+        <TextBlock Text="Цена" Grid.Row="7" Grid.Column="3" Margin="3"/>
+        <TextBlock Text="Льготная цена" Grid.Row="7" Grid.Column="4" Margin="3"/>
+
+        <TextBox x:Name="tbServiceRegion" Grid.Row="8" Grid.Column="0" MinWidth="100" Margin="3" HorizontalAlignment="Left"/>
+        <TextBox x:Name="tbServiceDistrict" Grid.Row="8" Grid.Column="1" MinWidth="100"  Margin="3" HorizontalAlignment="Left"/>
+        <TextBox x:Name="tbServiceLocality" Grid.Row="8" Grid.Column="2" MinWidth="100" Margin="3" HorizontalAlignment="Left"/>
+        <TextBox x:Name="tbServicePrice" Grid.Row="8" Grid.Column="3" MinWidth="100" Margin="3" HorizontalAlignment="Left"/>
+        <TextBox x:Name="tbServicePreferential"  Grid.Row="8" Grid.Column="4" MinWidth="100" Margin="3" HorizontalAlignment="Left"/>
+        <Button x:Name="SearchServiceButton"  Click="SearchServiceButton_Click" Content="Поиск"  Grid.Row="8" Grid.Column="5" Margin="3"/>
+        <Button x:Name="ClearServiceButton"  Click="ClearServiceButton_Click" Content="Очистить"  Grid.Row="8" Grid.Column="6" Margin="3"/>
+
+        <DataGrid Grid.ColumnSpan="7" Grid.Row="9" Grid.Column="0" MouseUp="DateGridService_MouseUp" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Name="DateGridService"  Margin="10,10,10,0" />
+
+
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.RowSpan="4"  Grid.Row="6" Grid.Column="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Дата" Margin="3" Grid.Row="0"/>
+            <TextBlock Text="Город" Margin="3" Grid.Row="1"/>
+            <TextBlock Text="Номер телефона" Margin="3" Grid.Row="2"/>
+            <TextBlock Text="Длительность" Margin="3" Grid.Row="3"/>
+            <TextBlock Text="Отправка счета" Margin="3" Grid.Row="4"/>
+            <TextBlock Text="Оплата счета" Margin="3" Grid.Row="5"/>
+        </Grid>
+
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.RowSpan="4"  Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="tbCallDate"  Grid.Row="0" MinWidth="100" Margin="3"  HorizontalAlignment="Left" />
+            <TextBox x:Name="tbCallCity" Grid.Row="1" MinWidth="100" Margin="3" HorizontalAlignment="Left"/>
+            <TextBox x:Name="tbCallNumber" Grid.Row="2"  MinWidth="100"  Margin="3" HorizontalAlignment="Left"/>
+            <TextBox x:Name="tbCallDuration" Grid.Row="3"  MinWidth="100" Margin="3" HorizontalAlignment="Left"/>
+            <CheckBox x:Name="cbCallMess" Grid.Row="4"   Margin="3" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <CheckBox x:Name="cbCallPayment" Grid.Row="5"  Margin="3" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Button x:Name="SaveButton" Click="SaveButton_Click" Content="Добавить"  Grid.Row="6"  Margin="3"/>
+        </Grid>
+
+    </Grid>
+</Window>

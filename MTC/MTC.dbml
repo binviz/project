@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MTC" Class="MTCDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=IVAN\SQLEXPRESS;Initial Catalog=MTC;Integrated Security=True" SettingsObjectName="MTC.Properties.Settings" SettingsPropertyName="MTCConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Клиенты" Member="Клиенты">
+    <Type Name="Клиенты">
+      <Column Name="id_клиента" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsReadOnly="true" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Номер_телефона" Type="System.String" DbType="NChar(20) NOT NULL" IsReadOnly="true" CanBeNull="false" />
+      <Column Name="Фамилия" Type="System.String" DbType="NChar(20) NOT NULL" IsReadOnly="true" CanBeNull="false" />
+      <Column Name="Имя" Type="System.String" DbType="NChar(20) NOT NULL" IsReadOnly="true" CanBeNull="false" />
+      <Column Name="Отчество" Type="System.String" DbType="NChar(20)" IsReadOnly="true" CanBeNull="true" />
+      <Column Name="Дата_регистрации" Type="System.DateTime" DbType="Date NOT NULL" IsReadOnly="true" CanBeNull="false" />
+      <Association Name="Клиенты_Звонки" Member="Звонки" ThisKey="id_клиента" OtherKey="id_клиента" Type="Звонки" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Звонки" Member="Звонки">
+    <Type Name="Звонки">
+      <Column Name="id_звонка" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Дата" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Город" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="id_клиента" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Номер_телефона" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Длительность" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Отправка_счета" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Оплата_счета" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="id_тарифа" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Клиенты_Звонки" Member="Клиенты" ThisKey="id_клиента" OtherKey="id_клиента" Type="Клиенты" IsForeignKey="true" />
+      <Association Name="Тарифы_Звонки" Member="Тарифы" ThisKey="id_тарифа" OtherKey="id_тарифа" Type="Тарифы" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="Users">
+      <Column Name="id_user" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="login" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Роль" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Фамилия" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Имя" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Отчество" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="Дата_регистрации" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Тарифы" Member="Тарифы">
+    <Type Name="Тарифы">
+      <Column Name="id_тарифа" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Область" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Район" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="Населенный_пункт" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Цена" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Льготная_цена" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="Тарифы_Звонки" Member="Звонки" ThisKey="id_тарифа" OtherKey="id_тарифа" Type="Звонки" />
+    </Type>
+  </Table>
+</Database>
