@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Root signature="{24B6FA0B-0143-461A-9758-AEB9E9A9428B}" version="12.0" key="{AC5311BF-9C3E-4A39-A07B-41ECCAEDAF3E}">
+	<children>
+		<child name="MTC_test_UI" key="{C72333DC-2D14-4DB4-ADC0-42B23AF1BAA6}" type="Project" typeId="{362A8EE5-675E-43A9-869D-06ECE80B0CB4}" pluginName="">
+			<data path="MTC_test_UI\MTC_test_UI.mds" />
+		</child>
+	</children>
+	<folders />
+	<testItems key="{35B38F7C-717E-48B4-B2F9-B0EF20B94F50}">
+		<children>
+			<testItem key="{C72333DC-2D14-4DB4-ADC0-42B23AF1BAA6}" enabled="True" timeout="0" stopOnError="True" description="" />
+		</children>
+	</testItems>
+	<variables key="{ED3BC4F5-93C4-4F44-93DB-C78FF3444877}">
+		<data Version="3" />
+	</variables>
+	<analysis key="{9EEACA68-6070-4EEE-9DDB-1835B37A6661}" />
+	<scc key="{00000000-0000-0000-0000-000000000000}" name="">
+		<data />
+	</scc>
+	<extender key="{1A3FC97E-9A66-4716-B166-35D10B4146E0}" />
+</Root>
